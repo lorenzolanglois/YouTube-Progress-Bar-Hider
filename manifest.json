@@ -23,5 +23,13 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
-  "version": "1.2"
+  "version": "1.2",
+  "browser_specific_settings": {
+		"gecko": {
+			"id": "youtube-progress-bar-hider@lorenzolanglois.fr",
+			"data_collection_permissions": {
+				"required": ["none"]
+			}
+		}
+	}
 }
