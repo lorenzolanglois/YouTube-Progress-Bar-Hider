@@ -1,9 +1,12 @@
-# YouTube-Progress-Bar-Hider
-Lightweight extension to hide the YouTube progress bar and video duration.
+# YouTube Progress Bar Hider
+![](icon128.png)
 
-<p align="center">
-    <a><img alt="A before after screenshot of the YouTube progress bar being hidden" src="preview/screenshot1.png"></a>
-</p>
+Extension to hide the YouTube progress bar and video duration.
+- Show or hide the progress bar by clicking on the extension
+- Minimal permissions
+- Lightweight (<15 KB)
+
+![A before after screenshot of the YouTube progress bar being hidden](preview/screenshot1.png)
 
 ## Install
 
