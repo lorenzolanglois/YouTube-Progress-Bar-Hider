@@ -4,6 +4,9 @@
       "css": [
         "yth.css"
       ],
+      "js": [
+        "yth.js"
+      ],
       "matches": [
         "*://*.youtube.com/*"
       ]
@@ -12,6 +15,9 @@
   "manifest_version": 3,
   "name": "YouTube Progress Bar Hider",
   "description": "Lightweight extension to hide the YouTube progress bar and video duration.",
+  "action": {
+    "default_popup": "popup.html"
+  },
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",

@@ -22,6 +22,8 @@ jobs:
 
       - run: for i in ./*.css; do csso $i -o $i; done
       - run: for i in ./*.json; do jq -c . $i > tmp.json && mv tmp.json $i; done
+      - run: for i in ./*.js; do terser $i --compress -o $i; done
+      - run: for i in ./*.html; do html-minifier-terser --collapse-whitespace --remove-comments -o $i $i; done
 
       - run: |
           git config user.name "${{ github.actor }}"
