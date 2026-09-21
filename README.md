@@ -3,7 +3,7 @@
 
 Extension to hide the YouTube progress bar and video duration.
 - Show or hide the progress bar by clicking on the extension
-- Show or hide the timestamps on thumbnails
+- Show or hide timestamps on thumbnails by clicking on the extension
 - Minimal permissions
 - Lightweight (<15 KB)
 
