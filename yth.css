@@ -1,4 +1,4 @@
-.ytp-progress-bar-container, .ytp-time-display {
+:is(.ytp-progress-bar-container, .ytp-time-display):not(.ythvideo *) {
     display: none !important;
 }
 

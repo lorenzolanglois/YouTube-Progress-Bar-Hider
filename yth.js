@@ -9,8 +9,11 @@ function updateStyle() {
   const req = db.transaction("settings").objectStore("settings").get("display");
   req.onsuccess = () => {
     display = req.result ?? "none";
-    document.querySelector(".ytp-progress-bar-container").style = `display: ${display} !important`;
-    document.querySelector(".ytp-time-display").style = `display: ${display} !important`;
+    if (display === "none") {
+      document.body.classList.remove("ythvideo");
+    } else {
+      document.body.classList.add("ythvideo");
+    }
   }
 }
 
