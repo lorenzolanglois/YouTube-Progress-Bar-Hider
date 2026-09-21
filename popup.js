@@ -2,9 +2,14 @@
 
 let toggleButton;
 let test;
+let notYoutube;
 let first = true;
 
 function updateText(display) {
+  if (display === undefined) {
+    notYoutube.style.display = "flex";
+    return;
+  }
   const text = display === "none" ? "Show" : "Hide";
   toggleButton.innerText = `${text} YouTube Progress Bar`;
   if (first === true) {
@@ -25,6 +30,7 @@ function updateText(display) {
 document.addEventListener("DOMContentLoaded", function () {
   toggleButton = document.getElementById("toggleButton");
   test = document.getElementById("test");
+  notYoutube = document.getElementById("notYoutube");
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {action: "refresh"}, updateText);
   });
