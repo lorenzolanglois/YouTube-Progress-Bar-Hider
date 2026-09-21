@@ -2,6 +2,7 @@
 
 const request = indexedDB.open("youtubeprogressbarhider", 1);
 let display;
+let displayTime;
 let db;
 
 function updateStyle() {
@@ -13,6 +14,18 @@ function updateStyle() {
   }
 }
 
+function updateTimeStyle() {
+  const req = db.transaction("settings").objectStore("settings").get("time");
+  req.onsuccess = () => {
+    displayTime = req.result ?? "none";
+    if (displayTime === "none") {
+      document.body.classList.remove("yth");
+    } else {
+      document.body.classList.add("yth");
+    }
+  }
+}
+
 request.onupgradeneeded = () => {
   request.result.createObjectStore("settings");
 };
@@ -20,13 +33,19 @@ request.onupgradeneeded = () => {
 request.onsuccess = () => {
   db = request.result;
   updateStyle();
+  updateTimeStyle();
 };
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.action === "toggle") {
-    display = display == "none" ? "block" : "none"
+    display = display == "none" ? "block" : "none";
     db.transaction("settings", "readwrite").objectStore("settings").put(display, "display");
     updateStyle();
   }
-  sendResponse(display);
+  if (request.action === "toggleTime") {
+    displayTime = displayTime == "none" ? "block" : "none";
+    db.transaction("settings", "readwrite").objectStore("settings").put(displayTime, "time");
+    updateTimeStyle();
+  }
+  sendResponse(JSON.stringify({display, displayTime}));
 });

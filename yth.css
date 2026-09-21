@@ -1,3 +1,7 @@
 .ytp-progress-bar-container, .ytp-time-display {
     display: none !important;
 }
+
+.yth .ytThumbnailBadgeViewModelHost .ytBadgeShapeThumbnailDefault, .yth ytd-thumbnail-overlay-time-status-renderer, .yth .ytInlinePlayerControlsTimeDisplay {
+    display: none !important;
+}
